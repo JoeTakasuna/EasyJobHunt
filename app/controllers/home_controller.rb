@@ -7,7 +7,7 @@ class HomeController < ApplicationController
 
   def top
     @lists = List.where(user: @current_user.id)
-    @lists = @lists.all.order(id: :desc)
+    @lists = @lists.all.order(id: :asc)
   end
 
   def help
