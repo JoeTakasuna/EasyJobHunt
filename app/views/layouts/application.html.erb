@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Easy Job Hunt</title>
+	<link rel="SHORTCUT ICON" href="ejh.png">
+	<meta name="description" content="就職活動を、もっと楽に。">
+	<meta name="keywords" content="就活,楽,就職,活動,Easy Job Hunt">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+		
+    <%= csrf_meta_tags %>
+	
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+	
+  </head>
+  
+  <body>
+	<div id="pagebody">
+	<header>
+	
+		<!-- タイトル -->
+		<div class="header-logo">
+			<% if @current_user %>
+				<%= link_to("Easy Job Hunt", "/top") %>
+			<% else %>
+				<%= link_to("Easy Job Hunt", "/") %>
+			<% end %>
+		</div>
+		
+		<!-- メインメニュー -->
+		<ul class="header-menus">			
+			<% if @current_user %>
+				<li><%= link_to("MYPAGE", "/top") %></li>
+				<li><%= link_to("HELP", "/help") %></li>
+				<li><%= link_to("CONTACT", "/contact") %></li>
+				<li><%= link_to("LOGOUT", "/logout", {method: :post}) %></li>
+			<% else %>
+				<li><%= link_to("TOP", "/") %></li>
+				<li><%= link_to("HELP", "/help") %></li>
+				<li><%= link_to("CONTACT", "/contact") %></li>
+				<li><%= link_to("LOGIN", "/login") %></li>
+			<% end %>
+		</ul>
+	</header>
+	
+    <% if flash[:notice] %>
+      <div class="flash">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+	</div>
+    <%= yield %>
+  </body>
+</html>
