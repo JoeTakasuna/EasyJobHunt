@@ -7,7 +7,21 @@ class HomeController < ApplicationController
 
   def top
     @lists = List.where(user: @current_user.id)
-    @lists = @lists.all.order(id: :asc)
+    if @config.sort == 0
+      @lists = @lists.all.order("id")
+    elsif @config.sort == 1
+      @lists = @lists.all.order("status1")
+    elsif @config.sort == 2
+      @lists = @lists.all.order("status1 desc")
+    elsif @config.sort == 3
+      @lists = @lists.all.order("status2")
+    elsif @config.sort == 4
+      @lists = @lists.all.order("status2 desc")
+    elsif @config.sort == 5
+      @lists = @lists.all.order("date")
+    elsif @config.sort == 6
+      @lists = @lists.all.order("date desc")
+    end
   end
 
   def help
@@ -44,6 +58,12 @@ class HomeController < ApplicationController
       note: params[:note]
     )
     @list.save
+    redirect_to("/top")
+  end
+
+  def sort
+    @config.sort = params[:sort]
+    @config.save
     redirect_to("/top")
   end
 

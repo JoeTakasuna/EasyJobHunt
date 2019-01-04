@@ -5,10 +5,12 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
-  
+
   def create
     @user = User.new(name: params[:name], password: params[:password])
     if @user.save
+      @config = Config.new(user_id: @user.id, sort: 0)
+      @config.save
       session[:user_id] = @user.id
       flash[:notice] = "ユーザー登録が完了しました"
       redirect_to("/top")
@@ -16,10 +18,10 @@ class UsersController < ApplicationController
       render("users/new")
     end
   end
-  
+
   def login_form
   end
-  
+
   def login
     @user = User.find_by(name: params[:name])
     if @user && @user.authenticate(params[:password])
@@ -33,9 +35,10 @@ class UsersController < ApplicationController
       render("users/login_form")
     end
   end
-  
+
   def logout
     session[:user_id] = nil
     redirect_to("/")
   end
+
 end

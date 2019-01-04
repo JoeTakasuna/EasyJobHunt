@@ -12,8 +12,9 @@ Rails.application.routes.draw do
   get "top" => "home#top"
   post "top/save" => "home#save"
   post "top/add" => "home#add"
+  post "top/sort" => "home#sort"
 
-  get 'eval' => "eval#index"
+  get "eval" => "evals#index"
 
   get "help" => "home#help"
   get "rule" => "home#rule"
