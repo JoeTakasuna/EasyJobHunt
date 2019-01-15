@@ -10,16 +10,24 @@ class HomeController < ApplicationController
     if @config.sort == 0
       @lists = @lists.all.order("id")
     elsif @config.sort == 1
-      @lists = @lists.all.order("status1")
+      @lists = @lists.all.order("type1")
     elsif @config.sort == 2
-      @lists = @lists.all.order("status1 desc")
+      @lists = @lists.all.order("type1 desc")
     elsif @config.sort == 3
-      @lists = @lists.all.order("status2")
+      @lists = @lists.all.order("type2")
     elsif @config.sort == 4
-      @lists = @lists.all.order("status2 desc")
+      @lists = @lists.all.order("type2 desc")
     elsif @config.sort == 5
-      @lists = @lists.all.order("date")
+      @lists = @lists.all.order("status1")
     elsif @config.sort == 6
+      @lists = @lists.all.order("status1 desc")
+    elsif @config.sort == 7
+      @lists = @lists.all.order("status2")
+    elsif @config.sort == 8
+      @lists = @lists.all.order("status2 desc")
+    elsif @config.sort == 9
+      @lists = @lists.all.order("date")
+    elsif @config.sort == 10
       @lists = @lists.all.order("date desc")
     end
   end

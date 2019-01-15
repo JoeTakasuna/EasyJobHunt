@@ -1,24 +1,16 @@
-# README
+# Easy Job Huntの概要
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+このサイトは「就職活動において、企業情報・選考状況の管理に苦労している」という声をよく聞いていた事から、<br>
+Webサービスによって支援をしたいと考え制作したものです。
+<br><br>
+Q. 何が出来るの？<br>
+A. 志望企業をスマホ・PC等関係なく、Web上で一元的に管理できます。
+<br><br>
+Q. どうすれば始められるの？<br>
+A. トップ画面の「新規登録」よりユーザー登録を行えば、あなただけの管理画面が生成されます。以後はログインすれば利用可能です。
+<br><br>
+Q. セキュリティ面は大丈夫なの？<br>
+A. アルゴリズムによる強固な暗号化処理を行なっています。
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## サイトイメージ
+![site_image](https://easyjobhunt.herokuapp.com/sample.png)
